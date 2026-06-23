@@ -4,7 +4,6 @@ mod text;
 mod strip;
 mod json;
 
-#[cfg_attr(windows, allow(unused_imports))]
 use std::io::Write;
 use std::path::PathBuf;
 
@@ -162,32 +161,6 @@ fn install_self(verbose: bool) {
         if verbose {
             println!("installed to {}", bin);
             println!("restart your terminal for PATH changes to take effect");
-        }
-    }
-
-    #[cfg(not(windows))]
-    {
-        let home = std::env::var("HOME").unwrap_or_else(|_| "/home/kroown".into());
-        let dir = format!("{}/.local/bin", home);
-        let bin = format!("{}/mscrw", dir);
-        _ = std::fs::create_dir_all(&dir);
-        _ = std::fs::copy(&exe, &bin);
-
-        let shell = std::env::var("SHELL").unwrap_or_default();
-        let rc = if shell.ends_with("zsh") { ".zshrc" } else { ".bashrc" };
-        let rc_path = format!("{}/{}", home, rc);
-
-        let path_line = format!("\nexport PATH=\"$PATH:{}\"\n", dir);
-        if !std::fs::read_to_string(&rc_path).unwrap_or_default().contains(&dir) {
-            _ = std::fs::OpenOptions::new()
-                .append(true)
-                .open(&rc_path)
-                .and_then(|mut f| f.write_all(path_line.as_bytes()));
-        }
-
-        if verbose {
-            println!("installed to {}", bin);
-            println!("run `source ~/{}` or restart your shell", rc);
         }
     }
 }

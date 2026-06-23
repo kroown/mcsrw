@@ -23,14 +23,14 @@ scans files recursively, extracts metadata, and can strip it in-place. no extern
 ## usage
 
 ```
-mcsrw --pretty image.jpg
-mcsrw --strip -v image.jpg
-mcsrw --threads 8 --pretty C:\Users\you\Pictures
+mscrw --pretty image.jpg
+mscrw --strip -v image.jpg
+mscrw --threads 8 --pretty C:\Users\you\Pictures
 ```
 
 ## install
 
-download `mcsrw.exe` from the [releases page](https://github.com/kroown/mscrw/releases), or build from source — it auto-installs to `%LOCALAPPDATA%\mcsrw\mcsrw.exe` (windows) or `~/.local/bin/mcsrw` (linux) and adds itself to your PATH on first run.
+download `mscrw.exe` from the [releases page](https://github.com/kroown/mscrw/releases), or build from source — it auto-installs to `%LOCALAPPDATA%\mscrw\mscrw.exe` and adds itself to your PATH on first run.
 
 ## options
 
@@ -69,9 +69,9 @@ download `mcsrw.exe` from the [releases page](https://github.com/kroown/mscrw/re
 
 ```powershell
 git clone https://github.com/kroown/mscrw.git
-cd mcsrw
+cd mscrw
 cargo build --release
-.\target\release\mcsrw.exe --help
+.\target\release\mscrw.exe --help
 ```
 
 <p align="center">
