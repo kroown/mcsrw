@@ -3,11 +3,6 @@
 </p>
 
 <p align="center">
-  <b>mcsrw</b><br>
-  metadata scraper · windows · rust
-</p>
-
-<p align="center">
   <img src="https://skillicons.dev/icons?i=windows,rust">
 </p>
 
